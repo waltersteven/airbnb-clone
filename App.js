@@ -9,7 +9,8 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 // import HomeScreen from './src/screens/Home/index';
-import SearchResultsScreen from './src/screens/SearchResults/index';
+// import SearchResultsScreen from './src/screens/SearchResults/index';
+import DestinationSearchScreen from './src/screens/DestinationSearch/index';
 import Post from './src/components/Post';
 import feed from './assets/data/feed';
 
@@ -21,7 +22,8 @@ const App: () => React$Node = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         {/* <Post post={post1} /> */}
-        <SearchResultsScreen />
+        {/* <SearchResultsScreen /> */}
+        <DestinationSearchScreen />
       </SafeAreaView>
     </>
   );
