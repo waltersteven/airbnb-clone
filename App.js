@@ -8,15 +8,18 @@
 
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import HomeScreen from './src/screens/home/index';
+// import HomeScreen from './src/screens/home/index';
 import Post from './src/components/Post';
+import feed from './assets/data/feed';
+
+const post1 = feed[0];
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <Post />
+        <Post post={post1} />
       </SafeAreaView>
     </>
   );
