@@ -10,7 +10,8 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 // import HomeScreen from './src/screens/Home/index';
 // import SearchResultsScreen from './src/screens/SearchResults/index';
-import DestinationSearchScreen from './src/screens/DestinationSearch/index';
+// import DestinationSearchScreen from './src/screens/DestinationSearch/index';
+import Guests from './src/screens/Guests/index';
 import Post from './src/components/Post';
 import feed from './assets/data/feed';
 
@@ -23,7 +24,8 @@ const App: () => React$Node = () => {
       <SafeAreaView>
         {/* <Post post={post1} /> */}
         {/* <SearchResultsScreen /> */}
-        <DestinationSearchScreen />
+        {/* <DestinationSearchScreen /> */}
+        <Guests />
       </SafeAreaView>
     </>
   );
