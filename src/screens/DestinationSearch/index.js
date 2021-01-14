@@ -1,37 +1,33 @@
-import React, {useState} from 'react';
-import {View, TextInput, FlatList, Text, Pressable} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import styles from './styles';
-import Entypo from 'react-native-vector-icons/Entypo';
 import {useNavigation} from '@react-navigation/native';
 
-import searchResults from '../../../assets/data/search';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import SuggestionRow from './SuggestionRow';
 
 const DestinationSearchScreen = () => {
-  const [inputText, setInputText] = useState('');
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      {/* Input Component */}
-      <TextInput
-        style={styles.textInput}
+      <GooglePlacesAutocomplete
         placeholder="Where are you going?"
-        value={inputText}
-        onChangeText={setInputText}
-      />
-      {/* List of destinations */}
-      <FlatList
-        data={searchResults}
-        renderItem={({item}) => (
-          <Pressable
-            onPress={() => navigation.navigate('Guests')}
-            style={styles.row}>
-            <View style={styles.iconContainer}>
-              <Entypo name={'location-pin'} size={30} />
-            </View>
-            <Text style={styles.locationText}>{item.description}</Text>
-          </Pressable>
-        )}
+        onPress={(data, details = null) => {
+          console.log(data, details);
+          navigation.navigate('Guests');
+        }}
+        fetchDetails
+        styles={{
+          textInput: styles.textInput,
+        }}
+        query={{
+          key: 'AIzaSyBwIaoXxuRhloKHW1a4wemtO6reFOaVE1U',
+          language: 'en',
+          types: '(cities)',
+        }}
+        suppressDefaultStyles
+        renderRow={(item) => <SuggestionRow item={item} />}
       />
     </View>
   );
